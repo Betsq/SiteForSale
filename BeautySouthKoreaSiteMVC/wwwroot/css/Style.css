@@ -1,0 +1,17 @@
+﻿.shadow-bottom {
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: 1px;
+    z-index: -1;
+    transform: scale(.9);
+    box-shadow: 0px 0px 8px 2px #000000;
+}
+
+.hover-bc {
+    
+}
+
+.hover-bc-card:hover .hover-bc {
+    background: #e8e8e8 
+}
