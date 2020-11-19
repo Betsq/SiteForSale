@@ -1,0 +1,47 @@
+﻿@model BeautySouthKoreaSiteMVC.Models.Cosmetic
+@{
+    ViewBag.Title = Model.Name;
+    ViewData["Yes"] = "Да";
+    ViewData["No"] = "Нет";
+}
+<h2>Пользователь @Model.Name</h2>
+<div>
+    <dl class="dl-horizontal">
+        <dt>Название товара</dt>
+        <dd>@Model.Name</dd>
+
+        <dt>Путь к картинке товара</dt>
+        <dd>@Model.Img</dd>
+
+        <dt>Брэнд</dt>
+        <dd>@Model.Brand</dd>
+
+        <dt>Цена</dt>
+        <dd>@Model.Price</dd>
+
+        <dt>Описание</dt>
+        <dd>@Model.Description</dd>
+
+        <dt>Предназначен для</dt>
+        <dd>@Model.PurposeFor</dd>
+
+        <dt>Вид средства</dt>
+        <dd>@Model.Means</dd>
+
+        <dt>Цвет</dt>
+        <dd>@Model.Color</dd>
+
+        <dt>Объем</dt>
+        <dd>@Model.Volume</dd>
+
+        <dt>Состав товара</dt>
+        <dd>@Model.CompositionGoods</dd>
+
+        <dt>Показывать наглавной странице сайта?</dt>
+        <dd>@{if (Model.ShowMainScreen == true)
+                @ViewData["Yes"]
+            else
+                @ViewData["No"]
+            }</dd>
+    </dl>
+</div>

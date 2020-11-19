@@ -1,0 +1,53 @@
+﻿@model BeautySouthKoreaSiteMVC.Models.Cosmetic
+@{ 
+    ViewBag.Title = "Добавление косметики";
+}
+<form asp-action="create" asp-controller="cosmetic">
+    <div class="form-group">
+        <label asp-for="Name" class=""></label>
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Img" class=""></label>
+        <input type="text" asp-for="Img" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Brand" class=""></label>
+        <input type="text" asp-for="Brand" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Price" class=""></label>
+        <input type="number" asp-for="Price" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class=""></label>
+        <input type="text" asp-for="Description" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="PurposeFor" class=""></label>
+        <input type="text" asp-for="PurposeFor" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Means" class=""></label>
+        <input type="text" asp-for="Means" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Color" class=""></label>
+        <input type="text" asp-for="Color" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Volume" class=""></label>
+        <input type="number" asp-for="Volume" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="CompositionGoods" class=""></label>
+        <input type="text" asp-for="CompositionGoods" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ShowMainScreen" class=""></label>
+        <input type="checkbox" asp-for="ShowMainScreen" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Отправить" class="btn btn-default" />
+    </div>
+</form>

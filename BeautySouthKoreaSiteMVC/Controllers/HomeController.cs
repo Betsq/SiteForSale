@@ -6,14 +6,21 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using BeautySouthKoreaSiteMVC.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BeautySouthKoreaSiteMVC.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+
+        private readonly CosmeticContext db;
+        public HomeController(CosmeticContext context)
         {
-            return View();
+            db = context;
+        }
+        public async Task<IActionResult> Index()
+        {
+            return View(await db.Cosmetics.ToListAsync());
         }
 
         public IActionResult Privacy()
