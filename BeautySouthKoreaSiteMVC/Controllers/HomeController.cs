@@ -18,9 +18,35 @@ namespace BeautySouthKoreaSiteMVC.Controllers
         {
             db = context;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
-            return View(await db.Cosmetics.ToListAsync());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name desc" : "";
+            ViewBag.BrandSortParm = sortOrder == "Brand" ? "Brand desc" : "Brand";
+            ViewBag.PriceSortParm = sortOrder == "Price" ? "Price desc" : "Price";
+            var cosmetics = from s in db.Cosmetics
+                           select s;
+            switch (sortOrder)
+            {
+                case "Name desc":
+                    cosmetics = cosmetics.OrderByDescending(s => s.Name);
+                    break;
+                case "Brand":
+                    cosmetics = cosmetics.OrderBy(s => s.Brand);
+                    break;
+                case "Brand desc":
+                    cosmetics = cosmetics.OrderByDescending(s => s.Brand);
+                    break;
+                case "Price":
+                    cosmetics = cosmetics.OrderBy(s => s.Price);
+                    break;
+                case "Price desc":
+                    cosmetics = cosmetics.OrderByDescending(s => s.Price);
+                    break;
+                default:
+                    cosmetics = cosmetics.OrderBy(s => s.Name);
+                    break;
+            }
+            return View(await cosmetics.ToListAsync());
         }
 
         public IActionResult Privacy()

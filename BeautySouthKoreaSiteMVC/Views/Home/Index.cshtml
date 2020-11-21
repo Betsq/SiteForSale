@@ -1,13 +1,16 @@
 ﻿@model IEnumerable<BeautySouthKoreaSiteMVC.Models.Cosmetic>
 @{
     ViewData["Title"] = "Home Page";
+    ViewData["H"] = "g";
 }
 <div class="container">
     <div class="content row">
-        <div class="col-sm-4 border-right">
+        <div class="col-sm-3">
             <section class="sticky-top">
                 <div class="" type="button" data-toggle="collapse" data-target="#collapseExampleFace" aria-expanded="false" aria-controls="collapseExample">
-                    <div class="dropdown-toggle border-bottom border-top">Лицо</div>
+                    <div class="border-bottom border-top arrow">Лицо
+                        <div class="dropdown-toggle arrow-right" style="height:26px;"> </div>
+                    </div>
                 </div>
                 <div class="collapse" id="collapseExampleFace">
                     <div class="">
@@ -16,7 +19,10 @@
                 </div>
                 <p>
                     <div class="" type="button" data-toggle="collapse" data-target="#collapseExampleEye" aria-expanded="false" aria-controls="collapseExample">
-                        <div class="dropdown-toggle border-bottom border-top">Глаза</div>
+                        <div class="border-bottom border-top">Глаза
+                            
+                        </div>
+                        
                     </div>
                 </p>
                 <div class="collapse" id="collapseExampleEye">
@@ -26,7 +32,8 @@
                 </div>
                 <p>
                     <div class="" type="button" data-toggle="collapse" data-target="#collapseExampleNails" aria-expanded="false" aria-controls="collapseExample">
-                        <div class="dropdown-toggle border-bottom border-top">Ногти</div>
+                        <div class="border-bottom border-top">Ногти</div>
+                        
                     </div>
                 </p>
                 <div class="collapse" id="collapseExampleNails">
@@ -36,7 +43,8 @@
                 </div>
                 <p>
                     <div class="" type="button" data-toggle="collapse" data-target="#collapseExampleLips" aria-expanded="false" aria-controls="collapseExample">
-                        <div class="dropdown-toggle border-bottom border-top">Губы</div>
+                        <div class="border-bottom border-top">Губы</div>
+                        
                     </div>
                 </p>
                 <div class="collapse" id="collapseExampleLips">
@@ -46,7 +54,8 @@
                 </div>
                 <p>
                     <div class="" type="button" data-toggle="collapse" data-target="#collapseExampleMakeupRemoval" aria-expanded="false" aria-controls="collapseExample">
-                        <div class="dropdown-toggle border-bottom border-top">Снятие макияжа</div>
+                        <div class="border-bottom border-top">Снятие макияжа</div>
+                        
                     </div>
                 </p>
                 <div class="collapse" id="collapseExampleMakeupRemoval">
@@ -57,67 +66,38 @@
             </section>
         </div>
 
-
-
-        <div class="col-sm-8 p-0">
+        <div class="col-sm-9 p-0">
+            <div class="col-md-12" style="height: 40px;">
+                <div class="btn-group" style="position: absolute; right: 0px; top: 0px; bottom: 0px;">
+                    <div class="m-1">Сортировать:</div>
+                    
+                    <a class="m-1" asp-action="Index" asp-route-sortOrder="@ViewBag.NameSortParm">По названию</a>
+                    <a class="m-1" asp-action="Index" asp-route-sortOrder="@ViewBag.BrandSortParm">По брэнду</a>
+                    <a class="m-1" asp-action="Index" asp-route-sortOrder="@ViewBag.PriceSortParm">По цене</a>
+                </div>
+            </div>
+            
             <div class="row pr-3 pl-3">
-
-                <div class="col-3 p-0 hover-bc-card">
-                    <a href="#" class="text-decoration-none text-dark">
-                        <img class="card-img-top p-4 bg-white" src="https://cdn.notinoimg.com/detail_thumb/shiseido/768614143925_01/shiseido-men-skin-empowering-cream___15.jpg" alt="Card image cap">
-                    </a>
-                    <div class="card-body hover-bc">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supportindsjfdsj fjdsjfdsjfsd fjsdfhjsdhj sdjsdjs hhsssng text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-
-                <div class="col-3 p-0 hover-bc-card">
-                    <a href="#" class="text-decoration-none text-dark">
-                        <img class="card-img-top p-4 bg-white" src="https://cdn.notinoimg.com/detail_thumb/shiseido/768614143925_01/shiseido-men-skin-empowering-cream___15.jpg" alt="Card image cap">
-                    </a>
-                    <div class="card-body hover-bc">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-                <div class="col-3 p-0 hover-bc-card">
-                    <a href="#" class="text-decoration-none text-dark">
-                        <img class="card-img-top p-4 bg-white" src="https://cdn.notinoimg.com/detail_thumb/shiseido/768614143925_01/shiseido-men-skin-empowering-cream___15.jpg" alt="Card image cap">
-                    </a>
-                    <div class="card-body hover-bc">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-                <div class="col-3 p-0 hover-bc-card">
-                    <a href="#" class="text-decoration-none text-dark">
-                        <img class="card-img-top p-4 bg-white" src="https://cdn.notinoimg.com/detail_thumb/shiseido/768614143925_01/shiseido-men-skin-empowering-cream___15.jpg" alt="Card image cap">
-                    </a>
-                    <div class="card-body hover-bc">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-                <div class="col-3 p-0 hover-bc-card">
-                    <a href="#" class="text-decoration-none text-dark">
-                        <img class="card-img-top p-4 bg-white" src="https://cdn.notinoimg.com/detail_thumb/shiseido/768614143925_01/shiseido-men-skin-empowering-cream___15.jpg" alt="Card image cap">
-                    </a>
-                    <div class="card-body hover-bc">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-                <div class="col-3 p-0 hover-bc-card">
-                    <a href="#" class="text-decoration-none text-dark">
-                        <img class="card-img-top p-4 bg-white" src="https://cdn.notinoimg.com/detail_thumb/shiseido/768614143925_01/shiseido-men-skin-empowering-cream___15.jpg" alt="Card image cap">
-                    </a>
-                    <div class="card-body hover-bc">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-
+                @foreach (var c in Model)
+                {
+                    if (c.ShowMainScreen == true)
+                    {
+                        <div class="col-md-3 p-0 hover-bc-card">
+                            <div class="p-3">
+                                <a href="#" class="text-decoration-none text-dark">
+                                    <div>
+                                        <img class="card-img-top p-4 bg-white" src=@c.Img alt="Card image cap">
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">@c.Name</h5>
+                                    <p class="card-text text-center f-sz-12 ">@c.Description</p>
+                                    <p class="card-text rounded text-center price-for-list">@c.Price ₴</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
             </div>
         </div>
     </div>
