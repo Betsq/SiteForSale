@@ -10,6 +10,7 @@ namespace BeautySouthKoreaSiteMVC.Models
     {
         public int Id { get; set; }
         [Display(Name = "Название товара")]
+
         public string Name { get; set; }
         [Display(Name = "Путь к картинке товара")]
         public string Img { get; set; }

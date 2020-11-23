@@ -2,13 +2,15 @@
 @{
     ViewData["Title"] = "Home Page";
     ViewData["H"] = "g";
+    
 }
 <div class="container">
     <div class="content row">
         <div class="col-sm-3">
             <section class="sticky-top">
                 <div class="" type="button" data-toggle="collapse" data-target="#collapseExampleFace" aria-expanded="false" aria-controls="collapseExample">
-                    <div class="border-bottom border-top arrow">Лицо
+                    <div class="border-bottom border-top arrow">
+                        Лицо
                         <div class="dropdown-toggle arrow-right" style="height:26px;"> </div>
                     </div>
                 </div>
@@ -19,10 +21,11 @@
                 </div>
                 <p>
                     <div class="" type="button" data-toggle="collapse" data-target="#collapseExampleEye" aria-expanded="false" aria-controls="collapseExample">
-                        <div class="border-bottom border-top">Глаза
-                            
+                        <div class="border-bottom border-top">
+                            Глаза
+
                         </div>
-                        
+
                     </div>
                 </p>
                 <div class="collapse" id="collapseExampleEye">
@@ -33,7 +36,7 @@
                 <p>
                     <div class="" type="button" data-toggle="collapse" data-target="#collapseExampleNails" aria-expanded="false" aria-controls="collapseExample">
                         <div class="border-bottom border-top">Ногти</div>
-                        
+
                     </div>
                 </p>
                 <div class="collapse" id="collapseExampleNails">
@@ -44,7 +47,7 @@
                 <p>
                     <div class="" type="button" data-toggle="collapse" data-target="#collapseExampleLips" aria-expanded="false" aria-controls="collapseExample">
                         <div class="border-bottom border-top">Губы</div>
-                        
+
                     </div>
                 </p>
                 <div class="collapse" id="collapseExampleLips">
@@ -55,7 +58,7 @@
                 <p>
                     <div class="" type="button" data-toggle="collapse" data-target="#collapseExampleMakeupRemoval" aria-expanded="false" aria-controls="collapseExample">
                         <div class="border-bottom border-top">Снятие макияжа</div>
-                        
+
                     </div>
                 </p>
                 <div class="collapse" id="collapseExampleMakeupRemoval">
@@ -70,13 +73,15 @@
             <div class="col-md-12" style="height: 40px;">
                 <div class="btn-group" style="position: absolute; right: 0px; top: 0px; bottom: 0px;">
                     <div class="m-1">Сортировать:</div>
-                    
+
                     <a class="m-1" asp-action="Index" asp-route-sortOrder="@ViewBag.NameSortParm">По названию</a>
                     <a class="m-1" asp-action="Index" asp-route-sortOrder="@ViewBag.BrandSortParm">По брэнду</a>
                     <a class="m-1" asp-action="Index" asp-route-sortOrder="@ViewBag.PriceSortParm">По цене</a>
                 </div>
             </div>
+
             
+
             <div class="row pr-3 pl-3">
                 @foreach (var c in Model)
                 {

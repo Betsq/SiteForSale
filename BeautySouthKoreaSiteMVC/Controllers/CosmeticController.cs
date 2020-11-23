@@ -3,6 +3,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace BeautySouthKoreaSiteMVC.Controllers
 {
@@ -15,6 +16,7 @@ namespace BeautySouthKoreaSiteMVC.Controllers
         }
         public async Task<IActionResult> Index()
         {
+            
             return View(await db.Cosmetics.ToListAsync());
         }
 

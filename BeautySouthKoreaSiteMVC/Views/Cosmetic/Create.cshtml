@@ -25,11 +25,11 @@
     </div>
     <div class="form-group">
         <label asp-for="PurposeFor" class=""></label>
-        <input type="text" asp-for="PurposeFor" class="form-control" />
+        <select asp-for="PurposeFor" asp-items="BeautySouthKoreaSiteMVC.Util.SelectListItemHelper.GetPurposeList()" class="form-control"></select>
     </div>
     <div class="form-group">
         <label asp-for="Means" class=""></label>
-        <input type="text" asp-for="Means" class="form-control" />
+        <select asp-for="Means" asp-items="BeautySouthKoreaSiteMVC.Util.SelectListItemHelper.GetMeansList()" class="form-control"></select>
     </div>
     <div class="form-group">
         <label asp-for="Color" class=""></label>
