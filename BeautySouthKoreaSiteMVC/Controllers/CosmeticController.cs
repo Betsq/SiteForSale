@@ -99,5 +99,16 @@ namespace BeautySouthKoreaSiteMVC.Controllers
             return NotFound();
         }
         #endregion
+
+        public async Task<IActionResult> Product(int? id)
+        {
+            if (id != null)
+                {
+                    Cosmetic cosmetic = await db.Cosmetics.FirstOrDefaultAsync(p => p.Id == id);
+                    if (cosmetic != null)
+                        return View(cosmetic);
+            }
+            return NotFound();
+        }
     }
 }

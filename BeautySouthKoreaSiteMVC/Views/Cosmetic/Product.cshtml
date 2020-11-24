@@ -1,0 +1,112 @@
+﻿@model BeautySouthKoreaSiteMVC.Models.Cosmetic
+
+@{ 
+    ViewData["Title"] = "Товары";
+    ViewData["Цвет"] = "Цвет: ";
+    ViewData["Производитель"] = "Производитель: ";
+    ViewData["Предназначен для"] = "Предназначен для: ";
+    ViewData["Средство"] = "Средство: ";
+    ViewData["Объем"] = "Объем: ";
+    ViewData["Состав товара"] = "Состав товара: ";
+    ViewData["Цена"] = Model.Price;
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 d-flex justify-content-center">
+            <div class="m-2">
+                <div class="col-md-10">
+                    <img src="@Model.Img" alt="Alternate Text" />
+                </div>  
+            </div>
+            
+        </div>
+        
+        <div class="col-lg-6">
+            <div class="m-2 ">
+
+                <div class="col-md-12 p-0 mb-3 border">
+                    <div class="align-middle m-3 d-inline-block" style="font-size: 35px;">@Model.Price ₴</div>
+                    <button class="btn btn-dark m-0" style="font-size:30px;">Купить</button>   
+                </div>
+
+                <div class="col-md-12 p-0 border rounded-top">
+                    <div class="col-md-12 text-center border-bottom" style="font-size: 20px;">
+                        <div class="mt-2 mb-2">Доставка</div>
+                    </div>
+
+                    <div class="col-md-12 mb-2 mt-2">
+                        <img src="~/img/logoNovaPoshta.png" alt="Alternate Text" style="height: 30px; width:30px;"/>
+                        <div class="d-inline-block">Новая почта</div> 
+                        <div class="el-move-right mr-1">По тарифам перевозчика</div>
+                    </div>
+                    <div class="col-md-12 mb-2">
+                        <img src="~/img/logoMeestExpres.png" alt="Alternate Text" style="height: 30px; width:30px;" /> 
+                        <div class="d-inline-block">Meest Express</div>
+                        <div class="el-move-right mr-1">По тарифам перевозчика</div>
+                    </div>
+                    <div class="col-md-12 mb-2">
+                        <img src="~/img/logoJustin.png" alt="Alternate Text" style="height: 30px; width:30px;" />
+                        <div class="d-inline-block">Justin</div>
+                        <div class="el-move-right mr-1">По тарифам перевозчика</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-12 ">
+            <div class="m-2 charac-bc">
+                <div class="col-md-12 p-0 mb-1">
+                    @if (Model.Brand != null)
+                    {
+                        @ViewData["Производитель"] <div class="el-move-right mr-3">@Model.Brand</div>
+                    }
+
+                </div>
+                <div class="col-md-12 p-0 mb-1">
+                    @if (Model.Color != null)
+                    {
+                        @ViewData["Цвет"] <div class="el-move-right mr-3">@Model.Color</div>
+                    }
+
+                </div>
+                <div class="col-md-12 p-0 mb-1">
+                    @if (Model.PurposeFor != null)
+                    {
+                        @ViewData["Предназначен для"] <div class="el-move-right mr-3">@Model.PurposeFor</div>
+                    }
+
+                </div>
+                <div class="col-md-12 p-0 mb-1">
+                    @if (Model.Means != null)
+                    {
+                        @ViewData["Средство"] <div class="el-move-right mr-3">@Model.Means</div>
+                    }
+
+                </div>
+                <div class="col-md-12 p-0 mb-1">
+                    @if (Model.Volume > 0)
+                    {
+                        @ViewData["Объем"] <div class="el-move-right mr-3">@Model.Volume</div> 
+                    }
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="m-2 ">
+                    @if (Model.Description != null)
+                    {
+                        <p class="text-center">Описание товара</p> <pre style="white-space: pre-wrap; font-family: Arial;">@Model.Description</pre>
+                    }
+
+                    @if (Model.CompositionGoods != null)
+                    {
+                        @ViewData["Состав товара"] <pre style="white-space: pre-wrap; font-family: Arial;">@Model.CompositionGoods</pre>
+                    }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<BeautySouthKoreaSiteMVC.Models.Cosmetic>
 @{
     ViewData["Title"] = "Home Page";
-    ViewData["H"] = "g";
+    
     
 }
 <div class="container">
@@ -70,8 +70,8 @@
         </div>
 
         <div class="col-sm-9 p-0">
-            <div class="col-md-12" style="height: 40px;">
-                <div class="btn-group" style="position: absolute; right: 0px; top: 0px; bottom: 0px;">
+            <div class="col-md-12 mb-3">
+                <div class="btn-group d-flex justify-content-end">
                     <div class="m-1">Сортировать:</div>
 
                     <a class="m-1" asp-action="Index" asp-route-sortOrder="@ViewBag.NameSortParm">По названию</a>
@@ -89,14 +89,14 @@
                     {
                         <div class="col-md-3 p-0 hover-bc-card">
                             <div class="p-3">
-                                <a href="#" class="text-decoration-none text-dark">
+                                <a class="text-decoration-none text-dark" asp-action="Product" asp-controller="Cosmetic" asp-route-id="@c.Id">
                                     <div>
                                         <img class="card-img-top p-4 bg-white" src=@c.Img alt="Card image cap">
                                     </div>
                                 </a>
                                 <div class="card-body">
                                     <h5 class="card-title text-center">@c.Name</h5>
-                                    <p class="card-text text-center f-sz-12 ">@c.Description</p>
+                                    <p class="card-text text-center f-sz-12 ">@c.PurposeFor</p>
                                     <p class="card-text rounded text-center price-for-list">@c.Price ₴</p>
                                 </div>
                             </div>
