@@ -38,10 +38,12 @@
         <dd>@Model.CompositionGoods</dd>
 
         <dt>Показывать наглавной странице сайта?</dt>
-        <dd>@{if (Model.ShowMainScreen == true)
-                @ViewData["Yes"]
-            else
-                @ViewData["No"]
-            }</dd>
+        <dd>
+            @{if (Model.ShowMainScreen == true)
+                    @ViewData["Yes"]
+                    else
+                        @ViewData["No"]
+            }
+        </dd>
     </dl>
 </div>

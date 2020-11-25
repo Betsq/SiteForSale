@@ -19,23 +19,26 @@ namespace BeautySouthKoreaSiteMVC.Controllers
         {
             db = context;
         }
-        public async Task<IActionResult> Index(string sortOrder)
+        public async Task<IActionResult> Index(string searchString, string sortOrder)
         {
+            ViewBag.CurrentFilter = searchString;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name desc" : "";
-            ViewBag.BrandSortParm = sortOrder == "Brand" ? "Brand desc" : "Brand";
             ViewBag.PriceSortParm = sortOrder == "Price" ? "Price desc" : "Price";
+
             var cosmetics = from s in db.Cosmetics
                            select s;
+            
+            //Search logic
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                cosmetics = cosmetics.Where(c => c.Name.Contains(searchString));
+            }
+
+            //Sorting logic
             switch (sortOrder)
             {
                 case "Name desc":
                     cosmetics = cosmetics.OrderByDescending(s => s.Name);
-                    break;
-                case "Brand":
-                    cosmetics = cosmetics.OrderBy(s => s.Brand);
-                    break;
-                case "Brand desc":
-                    cosmetics = cosmetics.OrderByDescending(s => s.Brand);
                     break;
                 case "Price":
                     cosmetics = cosmetics.OrderBy(s => s.Price);

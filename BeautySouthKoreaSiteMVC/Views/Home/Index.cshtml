@@ -6,12 +6,12 @@
 }
 <div class="container">
     <div class="content row">
+
         <div class="col-sm-3">
             <section class="sticky-top">
                 <div class="" type="button" data-toggle="collapse" data-target="#collapseExampleFace" aria-expanded="false" aria-controls="collapseExample">
                     <div class="border-bottom border-top arrow">
                         Лицо
-                        <div class="dropdown-toggle arrow-right" style="height:26px;"> </div>
                     </div>
                 </div>
                 <div class="collapse" id="collapseExampleFace">
@@ -25,7 +25,6 @@
                             Глаза
 
                         </div>
-
                     </div>
                 </p>
                 <div class="collapse" id="collapseExampleEye">
@@ -73,14 +72,10 @@
             <div class="col-md-12 mb-3">
                 <div class="btn-group d-flex justify-content-end">
                     <div class="m-1">Сортировать:</div>
-
-                    <a class="m-1" asp-action="Index" asp-route-sortOrder="@ViewBag.NameSortParm">По названию</a>
-                    <a class="m-1" asp-action="Index" asp-route-sortOrder="@ViewBag.BrandSortParm">По брэнду</a>
-                    <a class="m-1" asp-action="Index" asp-route-sortOrder="@ViewBag.PriceSortParm">По цене</a>
+                    <a class="m-1" asp-action="Index" asp-route-sortOrder="@ViewBag.NameSortParm"  asp-route-searchString="@ViewBag.CurrentFilter">По названию</a>
+                    <a class="m-1" asp-action="Index" asp-route-sortOrder="@ViewBag.PriceSortParm" asp-route-searchString="@ViewBag.CurrentFilter">По цене</a>
                 </div>
             </div>
-
-            
 
             <div class="row pr-3 pl-3">
                 @foreach (var c in Model)
@@ -91,7 +86,7 @@
                             <div class="p-3">
                                 <a class="text-decoration-none text-dark" asp-action="Product" asp-controller="Cosmetic" asp-route-id="@c.Id">
                                     <div>
-                                        <img class="card-img-top p-4 bg-white" src=@c.Img alt="Card image cap">
+                                        <img class="card-img-top p-4 bg-white" src=@c.Img alt="@c.Name">
                                     </div>
                                 </a>
                                 <div class="card-body">
