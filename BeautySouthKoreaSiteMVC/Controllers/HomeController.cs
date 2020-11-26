@@ -21,17 +21,18 @@ namespace BeautySouthKoreaSiteMVC.Controllers
         }
         public async Task<IActionResult> Index(string searchString, string sortOrder)
         {
+            
             ViewBag.CurrentFilter = searchString;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name desc" : "";
             ViewBag.PriceSortParm = sortOrder == "Price" ? "Price desc" : "Price";
 
             var cosmetics = from s in db.Cosmetics
                            select s;
-            
             //Search logic
-            if (!String.IsNullOrEmpty(searchString))
+
+            if (!string.IsNullOrEmpty(searchString))
             {
-                cosmetics = cosmetics.Where(c => c.Name.Contains(searchString));
+               cosmetics = cosmetics.Where(c => c.Name.Contains(searchString));
             }
 
             //Sorting logic

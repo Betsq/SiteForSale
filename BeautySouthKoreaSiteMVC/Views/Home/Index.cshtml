@@ -1,70 +1,90 @@
 ﻿@model IEnumerable<BeautySouthKoreaSiteMVC.Models.Cosmetic>
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "BSK";
     
     
 }
+
 <div class="container">
     <div class="content row">
-
         <div class="col-sm-3">
             <section class="sticky-top">
-                <div class="" type="button" data-toggle="collapse" data-target="#collapseExampleFace" aria-expanded="false" aria-controls="collapseExample">
-                    <div class="border-bottom border-top arrow">
-                        Лицо
-                    </div>
-                </div>
-                <div class="collapse" id="collapseExampleFace">
-                    <div class="">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                    </div>
-                </div>
-                <p>
-                    <div class="" type="button" data-toggle="collapse" data-target="#collapseExampleEye" aria-expanded="false" aria-controls="collapseExample">
-                        <div class="border-bottom border-top">
-                            Глаза
 
+                <div class="col-md-12 p-0 m-0" type="button" data-toggle="collapse" data-target="#collapseFace" aria-expanded="false" aria-controls="collapseExample">
+                    <div class="border-bottom border-top f-sz-18 arrow-4">
+                                Лицо
+                    </div>
+                </div>
+                <div class="collapse" id="collapseFace">
+                    <div>
+                        <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">Тональное средство</a></div>
+                        <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">ВВ-крем</a></div>
+                        <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">СС-Крем</a></div>
+                        <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">Румяна</a></div>
+                        <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">Контуринг лица</a></div>
+                        <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">Бронзеры</a></div>
+                        <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">Хайлайтеры</a></div>
+                        <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">Пудры</a></div>
+                        <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">Консилеры, корректоры</a></div>
+                        <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">Базы, праймеры под макияж</a></div>
+                        <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">Спреи для фиксации макияжа</a></div>    
+                    </div>
+                </div>
+
+                <p class="col-md-12">
+                    <div type="button" data-toggle="collapse" data-target="#collapseEye" aria-expanded="false" aria-controls="collapseExample">
+                        <div class="border-bottom border-top f-sz-18">
+                         
+                            Глаза
+                            
                         </div>
                     </div>
                 </p>
-                <div class="collapse" id="collapseExampleEye">
+                <div class="collapse" id="collapseEye">
                     <div class="card card-body">
                         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
                     </div>
                 </div>
-                <p>
-                    <div class="" type="button" data-toggle="collapse" data-target="#collapseExampleNails" aria-expanded="false" aria-controls="collapseExample">
-                        <div class="border-bottom border-top">Ногти</div>
 
+                <p>
+                    <div type="button" data-toggle="collapse" data-target="#collapseNails" aria-expanded="false" aria-controls="collapseExample">
+                        <div class="border-bottom border-top f-sz-18">
+                        Ногти
+                        </div>
                     </div>
                 </p>
-                <div class="collapse" id="collapseExampleNails">
+                <div class="collapse" id="collapseNails">
                     <div class="card card-body">
                         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
                     </div>
                 </div>
-                <p>
-                    <div class="" type="button" data-toggle="collapse" data-target="#collapseExampleLips" aria-expanded="false" aria-controls="collapseExample">
-                        <div class="border-bottom border-top">Губы</div>
 
+                <p>
+                    <div type="button" data-toggle="collapse" data-target="#collapseLips" aria-expanded="false" aria-controls="collapseExample">
+                        <div class="border-bottom border-top f-sz-18">
+                        Губы
+                        </div>
                     </div>
                 </p>
-                <div class="collapse" id="collapseExampleLips">
+                <div class="collapse" id="collapseLips">
                     <div class="card card-body">
                         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
                     </div>
                 </div>
-                <p>
-                    <div class="" type="button" data-toggle="collapse" data-target="#collapseExampleMakeupRemoval" aria-expanded="false" aria-controls="collapseExample">
-                        <div class="border-bottom border-top">Снятие макияжа</div>
 
+                <p>
+                    <div type="button" data-toggle="collapse" data-target="#collapseMakeupRemoval" aria-expanded="false" aria-controls="collapseExample">
+                        <div class="border-bottom border-top f-sz-18">
+                        Снятие макияжа
+                        </div>
                     </div>
                 </p>
-                <div class="collapse" id="collapseExampleMakeupRemoval">
+                <div class="collapse" id="collapseMakeupRemoval">
                     <div class="card card-body">
                         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
                     </div>
                 </div>
+
             </section>
         </div>
 
@@ -72,17 +92,27 @@
             <div class="col-md-12 mb-3">
                 <div class="btn-group d-flex justify-content-end">
                     <div class="m-1">Сортировать:</div>
-                    <a class="m-1" asp-action="Index" asp-route-sortOrder="@ViewBag.NameSortParm"  asp-route-searchString="@ViewBag.CurrentFilter">По названию</a>
+                    <a class="m-1" asp-action="Index" asp-route-sortOrder="@ViewBag.NameSortParm" asp-route-searchString="@ViewBag.CurrentFilter">По названию</a>
                     <a class="m-1" asp-action="Index" asp-route-sortOrder="@ViewBag.PriceSortParm" asp-route-searchString="@ViewBag.CurrentFilter">По цене</a>
                 </div>
             </div>
+
+
+            <form>
+                <label style="font-size:12px;"><input type="checkbox" name="fl-colour" value="Лица" id="red" /> Для лица</label><br>
+                <label style="font-size:12px;"><input type="checkbox" name="fl-colour" value="Глаз" id="red" /> Для Глаз</label><br>
+                <label style="font-size:12px;"><input type="checkbox" name="fl-colour" value="Ногтей" id="red" /> Для Ногтей</label><br>
+            </form>
+
+
+
 
             <div class="row pr-3 pl-3">
                 @foreach (var c in Model)
                 {
                     if (c.ShowMainScreen == true)
                     {
-                        <div class="col-md-3 p-0 hover-bc-card">
+                        <div class="filter col-md-3 p-0 hover-bc-card" data-category="@c.PurposeFor">
                             <div class="p-3">
                                 <a class="text-decoration-none text-dark" asp-action="Product" asp-controller="Cosmetic" asp-route-id="@c.Id">
                                     <div>

@@ -33,5 +33,15 @@ namespace BeautySouthKoreaSiteMVC.Models
         public string CompositionGoods { get; set; } //Состав товара
         [Display(Name = "Показывать товар на главной странице?")]
         public bool ShowMainScreen { get; set; }//Показывать на главной странице или нет.
+        [Display(Name = "Доставка Новой Почтой")]
+        public bool deliveryNovaPoshta { get; set; }
+        [Display(Name = "Доставка MeestExpres")]
+        public bool deliveryMeestExpres { get; set; }
+        [Display(Name = "Доставка Justin")]
+        public bool deliveryJustin { get; set; }
+
+
+
+
     }
 }

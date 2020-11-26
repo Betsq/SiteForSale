@@ -45,5 +45,29 @@
                         @ViewData["No"]
             }
         </dd>
+        <dt>Доставка Новой Почтой</dt>
+        <dd>
+            @{if (Model.deliveryNovaPoshta == true)
+                    @ViewData["Yes"]
+                    else
+                        @ViewData["No"]
+            }
+        </dd>
+        <dt>Доставка MeestExpres</dt>
+        <dd>
+            @{if (Model.deliveryMeestExpres == true)
+                    @ViewData["Yes"]
+                    else
+                        @ViewData["No"]
+            }
+        </dd>
+        <dt>Доставка Justin</dt>
+        <dd>
+            @{if (Model.deliveryJustin == true)
+                    @ViewData["Yes"]
+                    else
+                        @ViewData["No"]
+            }
+        </dd>
     </dl>
 </div>
