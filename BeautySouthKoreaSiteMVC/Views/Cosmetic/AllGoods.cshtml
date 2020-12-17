@@ -1,0 +1,56 @@
+﻿@model IEnumerable<BeautySouthKoreaSiteMVC.Models.Cosmetic>
+@{
+    ViewData["Title"] = "All Goods";
+}
+<div class="container">
+    <div class="content row">
+        <div class="col-sm-3">
+            <section class="sticky-top">
+                <form>
+                    <label style="font-size:12px;"><input type="checkbox" name="fl-colour" value="Лица" id="red" /> Для лица</label><br>
+
+                    <label style="font-size:12px;"><input type="checkbox" name="fl-colour" value="Глаз" id="red" /> Для Глаз</label><br>
+
+                    <label style="font-size:12px;"><input type="checkbox" name="fl-colour" value="Ногтей" id="red" /> Для Ногтей</label><br>
+                </form>
+            </section>
+        </div>
+
+        <div class="col-sm-9 p-0">
+            <div class="col-md-12 mb-3">
+                <div class="btn-group d-flex justify-content-end">
+                    <div class="m-1">Сортировать:</div>
+                    <a class="m-1" asp-action="AllGoods" asp-route-sortOrder="@ViewBag.NameSortParm" asp-route-searchString="@ViewBag.CurrentFilter">По названию</a>
+                    <a class="m-1" asp-action="AllGoods" asp-route-sortOrder="@ViewBag.PriceSortParm" asp-route-searchString="@ViewBag.CurrentFilter">По цене</a>
+                </div>
+            </div>
+            <div class="row pr-3 pl-3">
+
+
+
+
+
+                @foreach (var c in Model)
+                {
+                    <div class="filter col-md-3 p-0 hover-bc-card" data-category="@c.PurposeFor">
+                        <div class="p-3">
+                            <a class="text-decoration-none text-dark" asp-action="Product" asp-controller="Cosmetic" asp-route-id="@c.Id">
+                                <div>
+                                    <img class="card-img-top p-4 bg-white" src=@c.Img alt="@c.Name">
+                                </div>
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title text-center">@c.Name</h5>
+                                <p class="card-text text-center f-sz-12 ">@c.PurposeFor</p>
+                                <p class="card-text rounded text-center price-for-list">@c.Price ₴</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+        
+    </div>
+</div>

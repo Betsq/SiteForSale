@@ -19,45 +19,84 @@ namespace BeautySouthKoreaSiteMVC.Controllers
         {
             db = context;
         }
-        public async Task<IActionResult> Index(string searchString, string sortOrder)
+
+        public IActionResult Index(string[] color, string[] brand, string[] PurposeFor, string sortOrder)
         {
             
-            ViewBag.CurrentFilter = searchString;
-            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "Name desc" : "";
-            ViewBag.PriceSortParm = sortOrder == "Price" ? "Price desc" : "Price";
+            ViewBag.color = color;
+            ViewBag.PurposeFor = PurposeFor;
+            ViewBag.brand = brand;
+            ViewBag.NameSortParm = string.IsNullOrEmpty(sortOrder) ? "Name_desc" : "";
+            ViewBag.PriceSortParm = sortOrder == "Price" ? "Price_desc" : "Price";
 
-            var cosmetics = from s in db.Cosmetics
-                           select s;
-            //Search logic
+            var cosmetics = db.Cosmetics.ToList();
+            var co_cars = new List<Cosmetic>();
+            var ma_cars = new List<Cosmetic>();
+            var purposeFor = new List<Cosmetic>();
 
-            if (!string.IsNullOrEmpty(searchString))
+            if (color.Length != 0)
             {
-               cosmetics = cosmetics.Where(c => c.Name.Contains(searchString));
+                foreach (string co in color)
+                {
+                    var colorfiltercars = db.Cosmetics.Where(c => c.Color.Contains(co)).ToList();
+                    co_cars.AddRange(colorfiltercars);
+                }
+            }
+            else
+            {
+                co_cars = cosmetics;
             }
 
-            //Sorting logic
+            if (PurposeFor.Length != 0)
+            {
+                foreach (string pf in PurposeFor)
+                {
+                    var purposefiltercars = db.Cosmetics.Where(c => c.PurposeFor.Contains(pf)).ToList();
+                    purposeFor.AddRange(purposefiltercars);
+                }
+            }
+            else    
+            {
+                purposeFor = cosmetics;
+            }
+
+            if (brand.Length != 0)
+            {
+                foreach (string ma in brand)
+                {
+                    var manufacturerfiltercars = db.Cosmetics.Where(c => c.Brand.Contains(ma)).ToList();
+                    ma_cars.AddRange(manufacturerfiltercars);
+                }
+            }
+            else
+            {
+                ma_cars = cosmetics;
+            }
+
+            var filtercars = co_cars.Intersect(ma_cars);
+            filtercars = co_cars.Intersect(purposeFor);
+            
+
+
             switch (sortOrder)
             {
-                case "Name desc":
-                    cosmetics = cosmetics.OrderByDescending(s => s.Name);
+                case "Name_desc":
+                    filtercars = filtercars.OrderByDescending(s => s.Name);
                     break;
                 case "Price":
-                    cosmetics = cosmetics.OrderBy(s => s.Price);
+                    filtercars = filtercars.OrderBy(s => s.Price);
                     break;
-                case "Price desc":
-                    cosmetics = cosmetics.OrderByDescending(s => s.Price);
+                case "Price_desc":
+                    filtercars = filtercars.OrderByDescending(s => s.Price);
                     break;
                 default:
-                    cosmetics = cosmetics.OrderBy(s => s.Name);
+                    filtercars = filtercars.OrderBy(s => s.Name);
                     break;
             }
-            return View(await cosmetics.ToListAsync());
-        }
 
-        public IActionResult Privacy()
-        {
-            return View();
+            return View(filtercars.ToList());
         }
+      
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
