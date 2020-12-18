@@ -11,8 +11,8 @@
             <section class="sticky-top">
 
                 <div class="col-md-12 p-0 m-0" type="button" data-toggle="collapse" data-target="#collapseFace" aria-expanded="false" aria-controls="collapseExample">
-                    <div class="border-bottom border-top f-sz-18 arrow-4">
-                        Лицо
+                    <div class="border-bottom border-top f-sz-18">
+                        <a href="Cosmetic/Face" class="text-decoration-none text-dark">Face</a>
                     </div>
                 </div>
                 <div class="collapse" id="collapseFace">
@@ -35,7 +35,7 @@
                     <div type="button" data-toggle="collapse" data-target="#collapseEye" aria-expanded="false" aria-controls="collapseExample">
                         <div class="border-bottom border-top f-sz-18">
 
-                            Глаза
+                            <a href="Cosmetic/Eyes" class="text-decoration-none text-dark">Eye</a>
 
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                 <p>
                     <div type="button" data-toggle="collapse" data-target="#collapseNails" aria-expanded="false" aria-controls="collapseExample">
                         <div class="border-bottom border-top f-sz-18">
-                            Ногти
+                            <a href="Cosmetic/Fingernails" class="text-decoration-none text-dark">Fingernails</a>
                         </div>
                     </div>
                 </p>
@@ -62,7 +62,7 @@
                 <p>
                     <div type="button" data-toggle="collapse" data-target="#collapseLips" aria-expanded="false" aria-controls="collapseExample">
                         <div class="border-bottom border-top f-sz-18">
-                            Губы
+                            <a href="Cosmetic/Lips" class="text-decoration-none text-dark">Lips</a>
                         </div>
                     </div>
                 </p>
@@ -75,7 +75,7 @@
                 <p>
                     <div type="button" data-toggle="collapse" data-target="#collapseMakeupRemoval" aria-expanded="false" aria-controls="collapseExample">
                         <div class="border-bottom border-top f-sz-18">
-                            Снятие макияжа
+                            <a href="Cosmetic/RemovingMakeup" class="text-decoration-none text-dark">Removing makeup</a>
                         </div>
                     </div>
                 </p>
@@ -90,54 +90,51 @@
 
         <div class="col-sm-9 p-0">
             <div class="col-md-12 mb-3">
-                <div class="btn-group d-flex justify-content-end">
-                    <div class="m-1">Сортировать:</div>
-                    <a class="m-1" asp-action="Index" asp-route-sortOrder="@ViewBag.NameSortParm" asp-route-searchString="@ViewBag.CurrentFilter">По названию</a>
-                    <a class="m-1" asp-action="Index" asp-route-sortOrder="@ViewBag.PriceSortParm" asp-route-searchString="@ViewBag.CurrentFilter">По цене</a>
-                </div>
+                <form id="my_form" asp-action="Index" method="get">
+                    <label>Color:</label>
+                    <input type="checkbox" name="color" value="black" /><span>Black</span>
+                    <input type="checkbox" name="color" value="white" /><span>White</span>
+                    <br />
+                    <p></p>
+                    <label>Manufacturer:</label>
+                    <input type="checkbox" name="brand" value="A" /><span>A</span>
+                    <input type="checkbox" name="brand" value="B" /><span>B</span>
+                    <input type="checkbox" name="brand" value="C" /><span>C</span>
+                    <input type="checkbox" name="brand" value="D" /><span>D</span>
+                    <p></p>
+                    <label>Purpose:</label>
+                    <input type="checkbox" name="PurposeFor" value="SS" /><span>Лица</span>
+                    <input type="checkbox" name="PurposeFor" value="Глаз" /><span>Глаз</span>
+                    <input type="checkbox" name="PurposeFor" value="Ногтей" /><span>Ногтей</span>
+                    <input type="checkbox" name="PurposeFor" value="Губ" /><span>Губ</span>
+
+                    <input class="btn btn-info float-right" type="submit" value="Search" />
+                </form>
+
+                <table class="table">
+                    <thread>
+                        <tr>
+                            <th>
+                                <a class="sort" id="sortname" data-sortorder="@ViewBag.NameSortParm" href="javascript:void(0)">@Html.DisplayNameFor(model => model.Name)</a>
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Color)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Brand)
+                            </th>
+                            <th>
+                                <a class="sort" id="sortprice" data-sortorder="@ViewBag.PriceSortParm" href="javascript:void(0)">@Html.DisplayNameFor(model => model.Price)</a>
+                            </th>
+                        </tr>
+                    </thread>
+                </table>
             </div>
 
 
 
 
-            <form id="my_form" asp-action="Index" method="get">
-                <label>Color:</label>
-                <input type="checkbox" name="color" value="black" /><span>Black</span>
-                <input type="checkbox" name="color" value="white" /><span>White</span>
-                <br />
-                <label>Manufacturer:</label>
-                <input type="checkbox" name="brand" value="A" /><span>A</span>
-                <input type="checkbox" name="brand" value="B" /><span>B</span>
-                <input type="checkbox" name="brand" value="C" /><span>C</span>
-                <input type="checkbox" name="brand" value="D" /><span>D</span>
-
-                <label>Purpose:</label>
-                <input type="checkbox" name="PurposeFor" value="SS" /><span>Лица</span>
-                <input type="checkbox" name="PurposeFor" value="Глаз" /><span>Глаз</span>
-                <input type="checkbox" name="PurposeFor" value="Ногтей" /><span>Ногтей</span>
-                <input type="checkbox" name="PurposeFor" value="Губ" /><span>Губ</span>
-
-                <input class="btn btn-info float-right" type="submit" value="Search" />
-            </form>
-
-            <table class="table">
-                <thread>
-                    <tr>
-                        <th>
-                            <a class="sort" id="sortname" data-sortorder="@ViewBag.NameSortParm" href="javascript:void(0)">@Html.DisplayNameFor(model => model.Name)</a>
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Color)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Brand)
-                        </th>
-                        <th>
-                            <a class="sort" id="sortprice" data-sortorder="@ViewBag.PriceSortParm" href="javascript:void(0)">@Html.DisplayNameFor(model => model.Price)</a>
-                        </th>
-                    </tr>
-                </thread>
-                </table>
+           
                 
 
 
@@ -197,6 +194,11 @@
             link += "sortOrder=" + sortorder;
             window.location.href = link;
         })
+
+
+        $("a").click(function (event) {
+            event.stopPropagation();
+        });
     </script>
 }
 

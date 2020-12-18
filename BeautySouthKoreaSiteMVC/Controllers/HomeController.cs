@@ -20,12 +20,13 @@ namespace BeautySouthKoreaSiteMVC.Controllers
             db = context;
         }
 
-        public IActionResult Index(string[] color, string[] brand, string[] PurposeFor, string sortOrder)
+        public IActionResult Index(string[] color, string[] brand, string[] PurposeFor, string search, string sortOrder)
         {
             
             ViewBag.color = color;
             ViewBag.PurposeFor = PurposeFor;
             ViewBag.brand = brand;
+            ViewBag.search = search;
             ViewBag.NameSortParm = string.IsNullOrEmpty(sortOrder) ? "Name_desc" : "";
             ViewBag.PriceSortParm = sortOrder == "Price" ? "Price_desc" : "Price";
 
@@ -33,6 +34,22 @@ namespace BeautySouthKoreaSiteMVC.Controllers
             var co_cars = new List<Cosmetic>();
             var ma_cars = new List<Cosmetic>();
             var purposeFor = new List<Cosmetic>();
+            var schStr = new List<Cosmetic>();
+
+
+
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                    var sr = db.Cosmetics.Where(c => c.Name.Contains(search)).ToList();
+                    schStr.AddRange(sr);
+            }
+            else
+            {
+                schStr = cosmetics;
+            }
+
+
 
             if (color.Length != 0)
             {
@@ -74,7 +91,9 @@ namespace BeautySouthKoreaSiteMVC.Controllers
             }
 
             var filtercars = co_cars.Intersect(ma_cars);
-            filtercars = co_cars.Intersect(purposeFor);
+            filtercars = filtercars.Intersect(purposeFor);
+            filtercars = filtercars.Intersect(schStr);
+            
             
 
 
