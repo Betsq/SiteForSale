@@ -14,7 +14,7 @@ namespace BeautySouthKoreaSiteMVC.Util
         {
             IList<SelectListItem> items = new List<SelectListItem>
             {
-                new SelectListItem{Text = "Лица", Value = "Лица"},
+                new SelectListItem{Text = "SS", Value = "SS"},
                 new SelectListItem{Text = "Глаз", Value = "Глаз"},
                 new SelectListItem{Text = "Ногтей", Value = "Ногтей"},
                 new SelectListItem{Text = "Губ", Value = "Губ"},

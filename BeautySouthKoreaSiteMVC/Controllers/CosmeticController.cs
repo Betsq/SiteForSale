@@ -110,5 +110,28 @@ namespace BeautySouthKoreaSiteMVC.Controllers
             }
             return NotFound();
         }
+
+
+        public async Task<IActionResult> Face()
+        {
+            return View();
+        }
+        public async Task<IActionResult> Eyes()
+        {
+            return View();
+        }
+        public async Task<IActionResult> Lips()
+        {
+            return View();
+        }
+        public async Task<IActionResult> Fingernails()
+        {
+            return View();
+        }
+        public async Task<IActionResult> RemovingMakeup()
+        {
+            return View();
+        }
+        
     }
 }

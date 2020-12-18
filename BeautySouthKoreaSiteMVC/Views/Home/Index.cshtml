@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<BeautySouthKoreaSiteMVC.Models.Cosmetic>
 @{
     ViewData["Title"] = "BSK";
-    
-    
+
+
 }
 
 <div class="container">
@@ -11,8 +11,8 @@
             <section class="sticky-top">
 
                 <div class="col-md-12 p-0 m-0" type="button" data-toggle="collapse" data-target="#collapseFace" aria-expanded="false" aria-controls="collapseExample">
-                    <div class="border-bottom border-top f-sz-18 arrow-4">
-                                Лицо
+                    <div class="border-bottom border-top f-sz-18">
+                        <a href="Cosmetic/Face" class="text-decoration-none text-dark">Face</a>
                     </div>
                 </div>
                 <div class="collapse" id="collapseFace">
@@ -27,16 +27,16 @@
                         <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">Пудры</a></div>
                         <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">Консилеры, корректоры</a></div>
                         <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">Базы, праймеры под макияж</a></div>
-                        <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">Спреи для фиксации макияжа</a></div>    
+                        <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">Спреи для фиксации макияжа</a></div>
                     </div>
                 </div>
 
                 <p class="col-md-12">
                     <div type="button" data-toggle="collapse" data-target="#collapseEye" aria-expanded="false" aria-controls="collapseExample">
                         <div class="border-bottom border-top f-sz-18">
-                         
-                            Глаза
-                            
+
+                            <a href="Cosmetic/Eyes" class="text-decoration-none text-dark">Eye</a>
+
                         </div>
                     </div>
                 </p>
@@ -49,7 +49,7 @@
                 <p>
                     <div type="button" data-toggle="collapse" data-target="#collapseNails" aria-expanded="false" aria-controls="collapseExample">
                         <div class="border-bottom border-top f-sz-18">
-                        Ногти
+                            <a href="Cosmetic/Fingernails" class="text-decoration-none text-dark">Fingernails</a>
                         </div>
                     </div>
                 </p>
@@ -62,7 +62,7 @@
                 <p>
                     <div type="button" data-toggle="collapse" data-target="#collapseLips" aria-expanded="false" aria-controls="collapseExample">
                         <div class="border-bottom border-top f-sz-18">
-                        Губы
+                            <a href="Cosmetic/Lips" class="text-decoration-none text-dark">Lips</a>
                         </div>
                     </div>
                 </p>
@@ -75,7 +75,7 @@
                 <p>
                     <div type="button" data-toggle="collapse" data-target="#collapseMakeupRemoval" aria-expanded="false" aria-controls="collapseExample">
                         <div class="border-bottom border-top f-sz-18">
-                        Снятие макияжа
+                            <a href="Cosmetic/RemovingMakeup" class="text-decoration-none text-dark">Removing makeup</a>
                         </div>
                     </div>
                 </p>
@@ -90,47 +90,116 @@
 
         <div class="col-sm-9 p-0">
             <div class="col-md-12 mb-3">
-                <div class="btn-group d-flex justify-content-end">
-                    <div class="m-1">Сортировать:</div>
-                    <a class="m-1" asp-action="Index" asp-route-sortOrder="@ViewBag.NameSortParm" asp-route-searchString="@ViewBag.CurrentFilter">По названию</a>
-                    <a class="m-1" asp-action="Index" asp-route-sortOrder="@ViewBag.PriceSortParm" asp-route-searchString="@ViewBag.CurrentFilter">По цене</a>
-                </div>
+                <form id="my_form" asp-action="Index" method="get">
+                    <label>Color:</label>
+                    <input type="checkbox" name="color" value="black" /><span>Black</span>
+                    <input type="checkbox" name="color" value="white" /><span>White</span>
+                    <br />
+                    <p></p>
+                    <label>Manufacturer:</label>
+                    <input type="checkbox" name="brand" value="A" /><span>A</span>
+                    <input type="checkbox" name="brand" value="B" /><span>B</span>
+                    <input type="checkbox" name="brand" value="C" /><span>C</span>
+                    <input type="checkbox" name="brand" value="D" /><span>D</span>
+                    <p></p>
+                    <label>Purpose:</label>
+                    <input type="checkbox" name="PurposeFor" value="SS" /><span>Лица</span>
+                    <input type="checkbox" name="PurposeFor" value="Глаз" /><span>Глаз</span>
+                    <input type="checkbox" name="PurposeFor" value="Ногтей" /><span>Ногтей</span>
+                    <input type="checkbox" name="PurposeFor" value="Губ" /><span>Губ</span>
+
+                    <input class="btn btn-info float-right" type="submit" value="Search" />
+                </form>
+
+                <table class="table">
+                    <thread>
+                        <tr>
+                            <th>
+                                <a class="sort" id="sortname" data-sortorder="@ViewBag.NameSortParm" href="javascript:void(0)">@Html.DisplayNameFor(model => model.Name)</a>
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Color)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Brand)
+                            </th>
+                            <th>
+                                <a class="sort" id="sortprice" data-sortorder="@ViewBag.PriceSortParm" href="javascript:void(0)">@Html.DisplayNameFor(model => model.Price)</a>
+                            </th>
+                        </tr>
+                    </thread>
+                </table>
             </div>
 
 
-            <form>
-                <label style="font-size:12px;"><input type="checkbox" name="fl-colour" value="Лица" id="red" /> Для лица</label><br>
-                <label style="font-size:12px;"><input type="checkbox" name="fl-colour" value="Глаз" id="red" /> Для Глаз</label><br>
-                <label style="font-size:12px;"><input type="checkbox" name="fl-colour" value="Ногтей" id="red" /> Для Ногтей</label><br>
-            </form>
 
 
+           
+                
 
 
-            <div class="row pr-3 pl-3">
-                @foreach (var c in Model)
-                {
-                    if (c.ShowMainScreen == true)
-                    {
-                        <div class="filter col-md-3 p-0 hover-bc-card" data-category="@c.PurposeFor">
-                            <div class="p-3">
-                                <a class="text-decoration-none text-dark" asp-action="Product" asp-controller="Cosmetic" asp-route-id="@c.Id">
-                                    <div>
-                                        <img class="card-img-top p-4 bg-white" src=@c.Img alt="@c.Name">
+                    <div class="row pr-3 pl-3">
+                        @foreach (var c in Model)
+                        {
+                            if (c.ShowMainScreen == true)
+                            {
+                                <div class="filter col-md-3 p-0 hover-bc-card" data-category="@c.PurposeFor">
+                                    <div class="p-3">
+                                        <a class="text-decoration-none text-dark" asp-action="Product" asp-controller="Cosmetic" asp-route-id="@c.Id">
+                                            <div>
+                                                <img class="card-img-top p-4 bg-white" src=@c.Img alt="@c.Name">
+                                            </div>
+                                        </a>
+                                        <div class="card-body">
+                                            <h5 class="card-title text-center">@c.Name</h5>
+                                            <p class="card-text text-center f-sz-12 ">@c.PurposeFor</p>
+                                            <p class="card-text rounded text-center price-for-list">@c.Price ₴</p>
+                                        </div>
                                     </div>
-                                </a>
-                                <div class="card-body">
-                                    <h5 class="card-title text-center">@c.Name</h5>
-                                    <p class="card-text text-center f-sz-12 ">@c.PurposeFor</p>
-                                    <p class="card-text rounded text-center price-for-list">@c.Price ₴</p>
                                 </div>
-                            </div>
-                        </div>
-                    }
-                }
-            </div>
+                            }
+                        }
+                    </div>
         </div>
     </div>
 </div>
+@section scripts{
+    <script>
+        var color = @Html.Raw(Json.Serialize(ViewBag.color));
+        var brand = @Html.Raw(Json.Serialize(ViewBag.brand));
+        var PurposeFor = @Html.Raw(Json.Serialize(ViewBag.PurposeFor));
+
+        $(function () {
+            var checkoptions = [];
+            checkoptions = brand;
+            checkoptions = color;
+            checkoptions = PurposeFor;
+            $('input[type=checkbox]').each(function () {
+                if (checkoptions.includes(this.value)) {
+                    $(this).prop("checked", true);
+                }
+            });
+        })
+
+
+        $(".sort").click(function () {
+            var sortorder = $(this).data('sortorder');
+            var link = "/Home/Index?";
+            color.forEach(function (value) {
+                link += "color=" + value + "&";
+            });
+            brand.forEach(function (value) {
+                link += "manufacturer=" + value + "&";
+            });
+            link += "sortOrder=" + sortorder;
+            window.location.href = link;
+        })
+
+
+        $("a").click(function (event) {
+            event.stopPropagation();
+        });
+    </script>
+}
 
 
