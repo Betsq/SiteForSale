@@ -131,28 +131,25 @@
                 </table>
             </div>
 
-                    <div class="row pr-3 pl-3">
-                        @foreach (var c in Model)
-                        {
-                            if (c.ShowMainScreen == true)
-                            {
-                                <div class="filter col-md-3 p-0 hover-bc-card" data-category="@c.PurposeFor">
-                                    <div class="p-3">
-                                        <a class="text-decoration-none text-dark" asp-action="Product" asp-controller="Cosmetic" asp-route-id="@c.Id">
-                                            <div>
-                                                <img class="card-img-top p-4 bg-white" src=@c.Img alt="@c.Name">
-                                            </div>
-                                        </a>
-                                        <div class="card-body">
-                                            <h5 class="card-title text-center">@c.Name</h5>
-                                            <p class="card-text text-center f-sz-12 ">@c.PurposeFor</p>
-                                            <p class="card-text rounded text-center price-for-list">@c.Price ₴</p>
-                                        </div>
+            <div class="row pr-3 pl-3">
+                @foreach (var c in Model)
+                {
+                        <div class="filter col-md-3 p-0 hover-bc-card" data-category="@c.PurposeFor">
+                            <div class="p-3">
+                                <a class="text-decoration-none text-dark" asp-action="Product" asp-controller="Cosmetic" asp-route-id="@c.Id">
+                                    <div>
+                                        <img class="card-img-top p-4 bg-white" src=@c.Img alt="@c.Name">
                                     </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">@c.Name</h5>
+                                    <p class="card-text text-center f-sz-12 ">@c.PurposeFor</p>
+                                    <p class="card-text rounded text-center price-for-list">@c.Price ₴</p>
                                 </div>
-                            }
-                        }
-                    </div>
+                            </div>
+                        </div>        
+                }
+            </div>
         </div>
     </div>
 </div>
@@ -164,8 +161,9 @@
 
         $(function () {
             var checkoptions = [];
-            checkoptions = color.concat(brand);
+            checkoptions = color.concat(manufacturer);
             checkoptions = checkoptions.concat(PurposeFor);
+            
             $('input[type=checkbox]').each(function () {
                 if (checkoptions.includes(this.value)) {
                     $(this).prop("checked", true);
@@ -191,10 +189,6 @@
         $("a").click(function (event) {
             event.stopPropagation();
         });
-
-
-        
-        
     </script>
 }
 
