@@ -112,26 +112,42 @@ namespace BeautySouthKoreaSiteMVC.Controllers
         }
 
 
+        public ActionResult Goods()
+        {
+            return PartialView("_Goods");
+        }
+
+
+
         public async Task<IActionResult> Face()
         {
-            return View();
+            var cosmetics = from s in db.Cosmetics select s;
+            cosmetics = cosmetics.Where(c => c.PurposeFor.Contains("Face"));
+            return View(cosmetics);
         }
-        public async Task<IActionResult> Eyes()
+        public IActionResult Eyes()
         {
-            return View();
+            var cosmetics = from s in db.Cosmetics select s;
+            cosmetics = cosmetics.Where(c => c.PurposeFor.Contains("Eyes"));
+            return View(cosmetics);
         }
         public async Task<IActionResult> Lips()
         {
-            return View();
+            var cosmetics = from s in db.Cosmetics select s;
+            cosmetics = cosmetics.Where(c => c.PurposeFor.Contains("Lips"));
+            return View(cosmetics);
         }
         public async Task<IActionResult> Fingernails()
         {
-            return View();
+            var cosmetics = from s in db.Cosmetics select s;
+            cosmetics = cosmetics.Where(c => c.PurposeFor.Contains("Fingernails"));
+            return View(cosmetics);
         }
         public async Task<IActionResult> RemovingMakeup()
         {
-            return View();
+            var cosmetics = from s in db.Cosmetics select s;
+            cosmetics = cosmetics.Where(c => c.PurposeFor.Contains("RemovingMakeup"));
+            return View(cosmetics);
         }
-        
     }
 }

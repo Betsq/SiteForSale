@@ -14,11 +14,11 @@ namespace BeautySouthKoreaSiteMVC.Util
         {
             IList<SelectListItem> items = new List<SelectListItem>
             {
-                new SelectListItem{Text = "SS", Value = "SS"},
-                new SelectListItem{Text = "Глаз", Value = "Глаз"},
-                new SelectListItem{Text = "Ногтей", Value = "Ногтей"},
-                new SelectListItem{Text = "Губ", Value = "Губ"},
-                new SelectListItem{Text = "Снятие макияжа", Value = "Снятие макияжа"}
+                new SelectListItem{Text = "Лица", Value = "Face"},
+                new SelectListItem{Text = "Глаз", Value = "Eyes"},
+                new SelectListItem{Text = "Ногтей", Value = "Fingernails"},
+                new SelectListItem{Text = "Губ", Value = "Lips"},
+                new SelectListItem{Text = "Снятие макияжа", Value = "RemovingMakeup"}
             };
             return items;
         }
