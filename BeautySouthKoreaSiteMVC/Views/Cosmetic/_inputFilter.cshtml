@@ -1,29 +1,49 @@
-﻿@model BeautySouthKoreaSiteMVC.Models.Cosmetic
+﻿@model IEnumerable<BeautySouthKoreaSiteMVC.Models.Cosmetic>
+@using System.Linq;
 
-                    <label>Color:</label>
-                    <input type="checkbox" name="color" value="black" /><span>Black</span>
-                    <input type="checkbox" name="color" value="white" /><span>White</span>
-                    <br />
-                    <p></p>
-                    <label>Manufacturer:</label>
-                    @{
+@{
+    <label>Color:</label>
+    var result = Model.FirstOrDefault(p => p.Color == "white"); if (result != null)
+    {
+        <input type="checkbox" name="color" value="white" /><span>White</span>}
+    result = Model.FirstOrDefault(p => p.Brand == "black"); if (result != null)
+    {
+        <input type="checkbox" name="color" value="black" /><span>Black</span> }
 
-                        if (Model.Brand == "A")
-                        {
-                            <input type="checkbox" name="brand" value="A" /><span>A</span>
-                        }
 
-                    }
+    <br />
+    <p></p>
+    <label>Manufacturer:</label>
+    result = Model.FirstOrDefault(p => p.Brand == "A"); if (result != null)
+    {
+        <input type="checkbox" name="brand" value="A" /><span>A</span> }
+    result = Model.FirstOrDefault(p => p.Brand == "B"); if (result != null)
+    {
+        <input type="checkbox" name="brand" value="A" /><span>B</span> }
+    result = Model.FirstOrDefault(p => p.Brand == "C"); if (result != null)
+    {
+        <input type="checkbox" name="brand" value="A" /><span>C</span> }
+    result = Model.FirstOrDefault(p => p.Brand == "D"); if (result != null)
+    {
+        <input type="checkbox" name="brand" value="A" /><span>D</span> }
+    <p></p>
+    <label>Purpose:</label>
+    result = Model.FirstOrDefault(p => p.PurposeFor == "Face"); if (result != null)
+    {
+        <input type="checkbox" name="PurposeFor" value="Face" /><span>Лица</span> }
 
-                    <input type="checkbox" name="brand" value="B" /><span>B</span>
-                    <input type="checkbox" name="brand" value="C" /><span>C</span>
-                    <input type="checkbox" name="brand" value="D" /><span>D</span>
-                    <p></p>
-                    <label>Purpose:</label>
-                    <input type="checkbox" name="PurposeFor" value="Face" /><span>Лица</span>
-                    <input type="checkbox" name="PurposeFor" value="Eyes" /><span>Глаз</span>
-                    <input type="checkbox" name="PurposeFor" value="Fingernails" /><span>Ногтей</span>
-                    <input type="checkbox" name="PurposeFor" value="Lips" /><span>Губ</span>
+    result = Model.FirstOrDefault(p => p.PurposeFor == "Eyes"); if (result != null)
+    {
+        <input type="checkbox" name="PurposeFor" value="Eyes" /><span>Глаз</span> }
 
-                    <input class="btn btn-info float-right" type="submit" value="Search" />
+    result = Model.FirstOrDefault(p => p.PurposeFor == "Fingernails"); if (result != null)
+    {
+        <input type="checkbox" name="PurposeFor" value="Fingernails" /><span>Ногтей</span> }
 
+    result = Model.FirstOrDefault(p => p.PurposeFor == "Lips"); if (result != null)
+    {
+        <input type="checkbox" name="PurposeFor" value="Lips" /><span>Губ</span> }
+
+
+    <input class="btn btn-info float-right" type="submit" value="Search" />
+}
