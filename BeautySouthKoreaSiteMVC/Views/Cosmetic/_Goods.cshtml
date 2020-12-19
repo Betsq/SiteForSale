@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<BeautySouthKoreaSiteMVC.Models.Cosmetic>
+
 @{
     ViewData["Title"] = "BSK";
 
@@ -10,107 +11,15 @@
         <div class="col-sm-3">
             <section class="sticky-top">
 
-                <div class="col-md-12 p-0 m-0" type="button" data-toggle="collapse" data-target="#collapseFace" aria-expanded="false" aria-controls="collapseExample">
-                    <div class="border-bottom border-top f-sz-18">
-                        <a class="text-decoration-none text-dark" asp-controller="Cosmetic" asp-action="Face">Face</a>
-                    </div>
-                </div>
-                <div class="collapse" id="collapseFace">
-                    <div>
-                        <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">Тональное средство</a></div>
-                        <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">ВВ-крем</a></div>
-                        <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">СС-Крем</a></div>
-                        <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">Румяна</a></div>
-                        <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">Контуринг лица</a></div>
-                        <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">Бронзеры</a></div>
-                        <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">Хайлайтеры</a></div>
-                        <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">Пудры</a></div>
-                        <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">Консилеры, корректоры</a></div>
-                        <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">Базы, праймеры под макияж</a></div>
-                        <div><a class="text-decoration-none text-dark f-sz-15 ml-3" href="#">Спреи для фиксации макияжа</a></div>
-                    </div>
-                </div>
-
-                <p class="col-md-12">
-                    <div type="button" data-toggle="collapse" data-target="#collapseEye" aria-expanded="false" aria-controls="collapseExample">
-                        <div class="border-bottom border-top f-sz-18">
-
-                            <a asp-controller="Cosmetic" asp-action="Eyes" class="text-decoration-none text-dark">Eye</a>
-
-                        </div>
-                    </div>
-                </p>
-                <div class="collapse" id="collapseEye">
-                    <div class="card card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                    </div>
-                </div>
-
-                <p>
-                    <div type="button" data-toggle="collapse" data-target="#collapseNails" aria-expanded="false" aria-controls="collapseExample">
-                        <div class="border-bottom border-top f-sz-18">
-                            <a asp-controller="Cosmetic" asp-action="Fingernails" class="text-decoration-none text-dark">Fingernails</a>
-                        </div>
-                    </div>
-                </p>
-                <div class="collapse" id="collapseNails">
-                    <div class="card card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                    </div>
-                </div>
-
-                <p>
-                    <div type="button" data-toggle="collapse" data-target="#collapseLips" aria-expanded="false" aria-controls="collapseExample">
-                        <div class="border-bottom border-top f-sz-18">
-                            <a asp-controller="Cosmetic" asp-action="Lips" class="text-decoration-none text-dark">Lips</a>
-                        </div>
-                    </div>
-                </p>
-                <div class="collapse" id="collapseLips">
-                    <div class="card card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                    </div>
-                </div>
-
-                <p>
-                    <div type="button" data-toggle="collapse" data-target="#collapseMakeupRemoval" aria-expanded="false" aria-controls="collapseExample">
-                        <div class="border-bottom border-top f-sz-18">
-                            <a asp-controller="Cosmetic" asp-action="RemovingMakeup" class="text-decoration-none text-dark">Removing makeup</a>
-                        </div>
-                    </div>
-                </p>
-                <div class="collapse" id="collapseMakeupRemoval">
-                    <div class="card card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                    </div>
-                </div>
+                <form id="my_form" asp-action="Face" method="get">
+                    @{await Html.RenderPartialAsync("_inputFilter");}
+                </form>
 
             </section>
         </div>
 
         <div class="col-sm-9 p-0">
             <div class="col-md-12 mb-3">
-                <form id="my_form" asp-action="Index" method="get">
-                    <label>Color:</label>
-                    <input type="checkbox" name="color" value="black" /><span>Black</span>
-                    <input type="checkbox" name="color" value="white" /><span>White</span>
-                    <br />
-                    <p></p>
-                    <label>Manufacturer:</label>
-                    <input type="checkbox" name="brand" value="A" /><span>A</span>
-                    <input type="checkbox" name="brand" value="B" /><span>B</span>
-                    <input type="checkbox" name="brand" value="C" /><span>C</span>
-                    <input type="checkbox" name="brand" value="D" /><span>D</span>
-                    <p></p>
-                    <label>Purpose:</label>
-                    <input type="checkbox" name="PurposeFor" value="SS" /><span>Лица</span>
-                    <input type="checkbox" name="PurposeFor" value="Глаз" /><span>Глаз</span>
-                    <input type="checkbox" name="PurposeFor" value="Ногтей" /><span>Ногтей</span>
-                    <input type="checkbox" name="PurposeFor" value="Губ" /><span>Губ</span>
-
-                    <input class="btn btn-info float-right" type="submit" value="Search" />
-                </form>
-
                 <table class="table">
                     <thread>
                         <tr>

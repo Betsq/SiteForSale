@@ -36,9 +36,6 @@ namespace BeautySouthKoreaSiteMVC.Controllers
             var purposeFor = new List<Cosmetic>();
             var schStr = new List<Cosmetic>();
 
-
-
-
             if (!string.IsNullOrEmpty(search))
             {
                     var sr = db.Cosmetics.Where(c => c.Name.Contains(search)).ToList();
@@ -48,8 +45,6 @@ namespace BeautySouthKoreaSiteMVC.Controllers
             {
                 schStr = cosmetics;
             }
-
-
 
             if (color.Length != 0)
             {
@@ -93,10 +88,7 @@ namespace BeautySouthKoreaSiteMVC.Controllers
             var filtercars = co_cars.Intersect(ma_cars);
             filtercars = filtercars.Intersect(purposeFor);
             filtercars = filtercars.Intersect(schStr);
-            
-            
-
-
+           
             switch (sortOrder)
             {
                 case "Name_desc":
@@ -112,7 +104,6 @@ namespace BeautySouthKoreaSiteMVC.Controllers
                     filtercars = filtercars.OrderBy(s => s.Name);
                     break;
             }
-
             return View(filtercars.ToList());
         }
       
