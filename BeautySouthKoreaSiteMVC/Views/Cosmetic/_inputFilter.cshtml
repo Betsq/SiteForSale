@@ -1,0 +1,29 @@
+﻿@model BeautySouthKoreaSiteMVC.Models.Cosmetic
+
+                    <label>Color:</label>
+                    <input type="checkbox" name="color" value="black" /><span>Black</span>
+                    <input type="checkbox" name="color" value="white" /><span>White</span>
+                    <br />
+                    <p></p>
+                    <label>Manufacturer:</label>
+                    @{
+
+                        if (Model.Brand == "A")
+                        {
+                            <input type="checkbox" name="brand" value="A" /><span>A</span>
+                        }
+
+                    }
+
+                    <input type="checkbox" name="brand" value="B" /><span>B</span>
+                    <input type="checkbox" name="brand" value="C" /><span>C</span>
+                    <input type="checkbox" name="brand" value="D" /><span>D</span>
+                    <p></p>
+                    <label>Purpose:</label>
+                    <input type="checkbox" name="PurposeFor" value="Face" /><span>Лица</span>
+                    <input type="checkbox" name="PurposeFor" value="Eyes" /><span>Глаз</span>
+                    <input type="checkbox" name="PurposeFor" value="Fingernails" /><span>Ногтей</span>
+                    <input type="checkbox" name="PurposeFor" value="Lips" /><span>Губ</span>
+
+                    <input class="btn btn-info float-right" type="submit" value="Search" />
+
